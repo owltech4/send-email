@@ -13,7 +13,7 @@ from email.mime.multipart import MIMEMultipart
 import json
 from cryptography_utils import decrypt_message
 
-# Carrega configurações
+# Loads the configuration from the config.json file.
 def load_config():
     with open('config.json', 'r') as file:
         return json.load(file)

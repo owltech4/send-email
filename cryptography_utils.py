@@ -12,17 +12,17 @@
 
 from cryptography.fernet import Fernet, InvalidToken
 
-# Função para gerar uma chave. Deve ser feito uma vez e usado o mesmo para criptografar/descriptografar
+# Function to generate a key. It should be done once and the same key used for encrypting/decrypting
 def generate_key():
     key = Fernet.generate_key()
     with open("secret.key", "wb") as key_file:
         key_file.write(key)
 
-# Carrega a chave secreta
+# Loads the secret key
 def load_key():
     return open("secret.key", "rb").read()
 
-# Criptografa uma mensagem
+# Encrypts a message
 def encrypt_message(message):
     key = load_key()
     encoded_message = message.encode()
@@ -30,11 +30,11 @@ def encrypt_message(message):
     encrypted_message = f.encrypt(encoded_message)
     return encrypted_message
 
-# Descriptografa uma mensagem
+# Decrypts a message
 def decrypt_message(encrypted_message):
     key = load_key()
     f = Fernet(key)
-    # Verifica se o token é válido antes de descriptografar a mensagem. Se não for, lança uma exceção.
+    # Checks if the token is valid before decrypting the message. If not, it throws an exception.
     try:
         # Decrypts the message using the secret key and the encrypted token. The token is encrypted before
         # decrypting the message to ensure integrity. If the token is invalid, the InvalidToken exception 
@@ -50,4 +50,4 @@ def decrypt_message(encrypted_message):
         print("Decryption failure: Invalid token. Check if the encryption key is correct.")
         # Here, you can decide what to do next, such as stopping the execution, returning a default value, etc. 
         # For example, you might return None or re-throw the exception to be handled elsewhere.
-        return None  # Ou, opcionalmente, raise e para lançar novamente a exceção
+        return None  # Or, optionally, use ´raise´ to re-throw the exception.

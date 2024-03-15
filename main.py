@@ -6,7 +6,7 @@ def main():
     start_time = datetime.datetime.now()
     print(f"Program started at: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Insira a lógica principal do seu programa aqui
+    # Insert the main logic of your program here
     receiver_email = "input.email@here.com"
     subject = "Test email"
     body = "Hi! :)"
@@ -15,7 +15,7 @@ def main():
     end_time = datetime.datetime.now()
     print(f"Program finished in: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Calcula e imprime a duração do programa
+    # Calculates and prints the duration of the program
     duration = end_time - start_time
     print(f"Execution duration: {duration}")
 

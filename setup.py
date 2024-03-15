@@ -7,19 +7,19 @@ def setup_project():
     generate_key()
     print("Key generated successfully.")
 
-    # Pede ao usuário o e-mail e senha para criptografar
+    # Asks the user for the email and password to encrypt
     email = input("Enter your email: ")
     senha = input("Enter your password: ")
 
-    # Criptografa o e-mail e a senha
+    # Encrypts the email and password
     email_criptografado = encrypt_message(email)
     senha_criptografada = encrypt_message(senha)
 
-    # Converte de bytes para string decodificável para armazenar no config.json
+    # Converts from bytes to a decodable string to store in config.json
     email_criptografado_str = email_criptografado.decode('utf-8')
     senha_criptografada_str = senha_criptografada.decode('utf-8')
 
-    # Atualiza o config.json com as informações criptografadas
+    # Updates the config.json with the encrypted information
     config_data = {
         "email": email_criptografado_str,
         "password": senha_criptografada_str,
